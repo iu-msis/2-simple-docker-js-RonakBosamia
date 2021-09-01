@@ -1,1 +1,8 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+header {
+    background-color:blanchedalmond;
+}
+main{
+    background-color: #D4E6F1 ;
+    border-radius: 10px;
+    padding: 10px;
+  }
