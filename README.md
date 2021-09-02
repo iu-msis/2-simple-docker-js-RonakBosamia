@@ -19,7 +19,6 @@ In Canvas, submit a link to your GitHub repository.
 * One page shows user information (should be fake), showing name, country or origin, birthdate, age, email address (clickable `mailto:` link that opens an email browser!), and a (fake) profile picture of the (fake) user. See https://randomuser.me for examples.
 
 * One page includes a table of books. Table MUST have at the following columns (title, author(s), year published, publisher, page count, MSRP) and at four to eight rows of data.
-
 * On the same page as your table of data, include a `<form>`suitable for adding rows to the table. (It doesn't need to *do* anything yet.) Include one input element for each column in the table. Use the appropriate input type. Format the form using an appropriate Bootstrap recipe.
 
 * Use [Bootstrap (>= v4)][bootstrap] on all pages. On all pages, also include a custom style sheet that overrides *at least* the following Bootstrap defaults: background color, text color, header color, link color.
