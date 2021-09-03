@@ -37,7 +37,7 @@ tr{
 
 #mynav{
   padding: 15px;
-  background-color: mintcream;
+  background-color: papayawhip;
   border-radius: 10px;
 }
 
@@ -56,6 +56,18 @@ main{
     border-radius: 10px;
 }
 
+.nav-link1{
+  color:red;
+  padding:5px;
+}
+.nav-link2{
+  color:green;
+  padding:5px;
+}
+.nav-link3{
+  color:blue;
+  padding:5px;
+}
 a{
-  color:deeppink;
+  color:rgb(88, 62, 22);
 }
