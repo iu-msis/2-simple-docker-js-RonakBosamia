@@ -55,3 +55,7 @@ main{
     border: 1px solid black;
     border-radius: 10px;
 }
+
+a{
+  color:deeppink;
+}
