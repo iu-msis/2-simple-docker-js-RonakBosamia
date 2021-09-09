@@ -1,0 +1,7 @@
+.*
+docker-compose.yml
+*.md
+
+#tells what files and directories to exclude from the final build image
+#.* omits all files that start with "."
+#*.md --> cause docker to omit any markdown file

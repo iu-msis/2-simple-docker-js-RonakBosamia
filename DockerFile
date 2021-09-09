@@ -8,6 +8,6 @@ WORKDIR /var/www/html
 
 
 #copy public to .
-COPY public .
+COPY app/public .
 
 #instructions in order to build container
