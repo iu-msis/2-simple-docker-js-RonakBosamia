@@ -1,0 +1,13 @@
+  
+FROM php:7.4-apache
+
+LABEL maintainer="Ronak Bosamia"
+
+#set working directory of docker container
+WORKDIR /var/www/html
+
+
+#copy public to .
+COPY public .
+
+#instructions in order to build container
