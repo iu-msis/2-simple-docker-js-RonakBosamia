@@ -52,7 +52,7 @@
  
 
 
-  <table class="table table-hover">
+  <table id="taskTable" class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -219,11 +219,10 @@
             <i>From Lifehack</i></a></figcaption></figure> 
             </a>
         </main>
-
-
-
-
-
-
+        <script src="js/tablesort.min.js"></script>
+         <script>
+           //table sort plugin from http://tristen.ca/tablesort/demo/
+          new Tablesort(document.getElementById('taskTable'));
+        </script>
 </body>
 </html>
