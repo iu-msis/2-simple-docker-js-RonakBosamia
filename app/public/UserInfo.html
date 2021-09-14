@@ -77,28 +77,24 @@
       </div>
       
       <hr>  
-
-      <h1> Lets Bring in Some Random Users</h1>
-      data.results =>{
-        <div class="randoUserApp">
-            
-            <img src="$(person.picture.medium)" class="img-rounded"> <!--using postman was able to find names of variables for website api --> 
-            <div>${person.name.first}</div>
-            <div>${person.name.last}</div>
-            <div>${person.location.country}</div>
-            <div>${person.email}</div>
-            <div>${person.dob.date}</div>
-            <div>${person.dob.age}</div>
-            <img v-bind:src="person.picture.medium" v-bind:alt="person" class="rounded img-thumbnail">
-            <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
-    
-        
-          <div class="person__header">
-            <img v-bind:src="person.picture.large" v-bind:alt="person" class="rounded img-thumbnail">
-            <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
+      <hr>
+      <hr>
+<!--instead of "results.-" may be "person." below-->
+      <h1> Lets Bring in A Random User</h1>
+ 
+  <!-- Here a loader is created which 
+             loads till response comes -->
+             <div class="randoUserApp">
+                   <!--<role="status" id="loading">-->
+                  <span class="sr-only">Loading...</span>
+              </div>
           </div>
-          <button class="btn btn-primary" v-on:click="getPeople">Refresh List</button>
-        </div>
+          <!-- table for showing data -->
+          <table id="randoUser"></table>
+         
+        <hr>
+        <hr>
+        <hr>  
         </main>
   
   
