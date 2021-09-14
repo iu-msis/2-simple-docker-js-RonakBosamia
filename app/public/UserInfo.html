@@ -9,6 +9,9 @@
 
     <link rel="stylesheet" href="css/hw1.css">
 
+    <script src="https://unpkg.com/vue@next"></script>
+
+
   <title>User Information</title>
  
 </head>
@@ -72,10 +75,32 @@
           </a>
         </div>
       </div>
-    
       
+      <hr>  
+
+      <h1> Lets Bring in Some Random Users</h1>
+      data.results =>{
+        p= <div class="well">
+            
+            <img src="$(person.picture.medium)" class="img-rounded"> <!--using postman was able to find names of variables for website api --> 
+            <div>${person.name.first}</div>
+            <div>${person.name.last}</div>
+            <div>${person.location.country}</div>
+            <div>${person.email}</div>
+            <div>${person.dob.date}</div>
+            <div>${person.dob.age}</div>
+            <img v-bind:src="person.picture.medium" v-bind:alt="person" class="rounded img-thumbnail">
+            <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
     
+        </div>
+        <div class="person__header">
+          <img v-bind:src="person.picture.large" v-bind:alt="person" class="rounded img-thumbnail">
+          <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
+        </div>
+        <button class="btn btn-primary" v-on:click="getPeople">Refresh List</button>
   </main>
   
+  
 </body>
+<script src="js/randomuser.js"></script>
 </html>
