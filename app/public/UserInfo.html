@@ -80,7 +80,7 @@
 
       <h1> Lets Bring in Some Random Users</h1>
       data.results =>{
-        p= <div class="well">
+        <div class="randoUserApp">
             
             <img src="$(person.picture.medium)" class="img-rounded"> <!--using postman was able to find names of variables for website api --> 
             <div>${person.name.first}</div>
@@ -92,13 +92,14 @@
             <img v-bind:src="person.picture.medium" v-bind:alt="person" class="rounded img-thumbnail">
             <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
     
+        
+          <div class="person__header">
+            <img v-bind:src="person.picture.large" v-bind:alt="person" class="rounded img-thumbnail">
+            <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
+          </div>
+          <button class="btn btn-primary" v-on:click="getPeople">Refresh List</button>
         </div>
-        <div class="person__header">
-          <img v-bind:src="person.picture.large" v-bind:alt="person" class="rounded img-thumbnail">
-          <div class="person__name">{{person.name.first}} {{person.name.last}}</div>
-        </div>
-        <button class="btn btn-primary" v-on:click="getPeople">Refresh List</button>
-  </main>
+        </main>
   
   
 </body>
