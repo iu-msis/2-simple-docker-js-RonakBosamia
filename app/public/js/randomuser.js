@@ -16,7 +16,8 @@
 //}
 
 // Function to define innerHTML for HTML table
-function show(data) {
+//function show(data) { night thought
+Vue.config.errorHandler = function (err, vm, info) {   
     let tab = 
         `<tr> 
           <th>Picture</th
@@ -32,9 +33,9 @@ function show(data) {
         //for (let results of data.list) 
             //<td><img v-bind:src="results.picture.medium" v-bind:alt="results" class="rounded img-thumbnail"></td>    
         //tab += 
-        for (let person in data.list) {
+        for (let person in data.list) {  
         `<tr> 
-            <td>${person.picture.medium}</td>
+            <td>${person.picture.medium}</td> 
             <td>${person.name.first}</td>
             <td>${person.name.last}</td>
             <td>${person.location.country}</td>
@@ -42,14 +43,14 @@ function show(data) {
             <td>${person.dob.date}</td>
             <td>${person.dob.age}</td>          
         </tr>`;
-    //}
+    }
     // Setting innerHTML as tab variable
     document.getElementById("randoUser").innerHTML = tab;
     //$("randoUserApp").append(tab)
+//} night thoght
 }
-
-}
+//} night thought
 Vue.createApp(randoUser).mount('#randoUserApp')
-
+Vue.config.silent = true
 
 
