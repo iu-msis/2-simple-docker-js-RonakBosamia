@@ -4,10 +4,12 @@ FROM php:7.4-apache
 LABEL maintainer="Ronak Bosamia"
 
 #set working directory of docker container
-WORKDIR /var/www/html
-
+#WORKDIR /var/www/html
+COPY app/ srv/app
 
 #copy public to .
-COPY app/public .
+#COPY app/public .
+COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 #instructions in order to build container
+
