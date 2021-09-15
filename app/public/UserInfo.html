@@ -80,28 +80,19 @@
       <hr>
       <hr>
 
-      <h1> Lets Bring in A Random User</h1>
+      
  
-  <!-- Here a loader is created which 
-             loads till response comes -->
-             <!--<div class="randoUserApp">
-                   
-                    <div class="d-flex justify-content-center">
-                      <div class="spinner-border" 
-                           role="status" id="loading">
-                      <span class="sr-only">Loading...</span>
-                    </div>
-          </div> -->
-          <!-- table for showing data -->
-          
-          
-          
-          
-          
-          
-          
-        <table id="randoUserApp"></table> 
-        
+      <div id=randoUserApp>
+        <h1> Lets Bring in A Random User</h1>
+        <img v-bind:src="person.picture.large">
+        <p>First Name |{{person.name.first}}</p>
+        <p>Last Name |{{person.name.last}}</p>
+        <p>Country of Origin |{{person.location.country}}</p>
+        <p>Date of Birth |{{person.dob.date}}</p>
+        <p>Age |{{person.dob.age}}</p>
+        <p>Email |<a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
+      </div>
+
         <hr>
         <hr>
         <hr>  
