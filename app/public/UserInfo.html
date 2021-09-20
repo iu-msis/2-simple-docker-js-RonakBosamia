@@ -87,7 +87,7 @@
         <img v-bind:src="person.picture.large">
         <p>Name | {{person.name.first}} {{person.name.last}}</p>
         <p>Country of Origin | {{person.location.country}}</p>
-        <p>Date of Birth | {{person.dob.date}}</p>
+        <p>Date of Birth | {{ prettyBirthday }}</p>
         <p>Age | {{person.dob.age}}</p>
         <p>Email | <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
       </div>
@@ -98,5 +98,6 @@
     </main>
 
 </body>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 <script src="js/randomuser.js"></script>
 </html>
