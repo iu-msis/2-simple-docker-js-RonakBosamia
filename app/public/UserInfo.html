@@ -85,12 +85,11 @@
       <div id=randoUserApp>
         <h1> Lets Bring in A Random User</h1>
         <img v-bind:src="person.picture.large">
-        <p>First Name |{{person.name.first}}</p>
-        <p>Last Name |{{person.name.last}}</p>
-        <p>Country of Origin |{{person.location.country}}</p>
-        <p>Date of Birth |{{person.dob.date}}</p>
-        <p>Age |{{person.dob.age}}</p>
-        <p>Email |<a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
+        <p>Name | {{person.name.first}} {{person.name.last}}</p>
+        <p>Country of Origin | {{person.location.country}}</p>
+        <p>Date of Birth | {{person.dob.date}}</p>
+        <p>Age | {{person.dob.age}}</p>
+        <p>Email | <a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
       </div>
 
         <hr>
