@@ -84,6 +84,9 @@
  
       <div id=randoUserApp>
         <h1> Lets Bring in A Random User</h1>
+          <form v-on:submit.prevent="fetchUserData"> <!-- Dont technically need form tag- but using this makes it a little bit mroe accessible for screen readers-->
+            <button type="submit"> Refresh</button>
+          </form><!-- form has a default action- tries to send data by form action attribute-->
         <img v-bind:src="person.picture.large">
         <p>Name | {{person.name.first}} {{person.name.last}}</p>
         <p>Country of Origin | {{person.location.country}}</p>

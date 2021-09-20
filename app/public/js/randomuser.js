@@ -11,8 +11,9 @@ const randoUser={
             .format('D MMM YYYY')
         }
     },
-        created(){
-
+    methods: {
+        fetchUserData(){
+            
             fetch('https://randomuser.me/api/')
             .then( response => response.json() )
             .then( (responseJson) => {
@@ -25,7 +26,14 @@ const randoUser={
         })
  
         }
-}
+
+        
+    },
+        created() {
+            this.fetchUserData();
+
+}//end created
+}//end randomUser
         //.then( (data) => console.log(data));
 
 Vue.createApp(randoUser).mount('#randoUserApp');
