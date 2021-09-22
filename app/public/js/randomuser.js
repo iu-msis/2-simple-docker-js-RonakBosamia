@@ -1,7 +1,14 @@
 const randoUser={
     data() {
         return {
-            "person": {},
+            "person": {
+                name: {},
+                picture: {},
+                location:{},
+                dob:{},
+                email:{}
+
+            },
 
         }
     },
