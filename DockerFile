@@ -10,8 +10,8 @@ WORKDIR /srv/app
 #Copy our app folder to the image
 COPY app /srv/app
 
-# PHP configuration
+# PHP
 COPY docker/php/php.ini /usr/local/etc/php/php.ini
 
-# Apache configuration
+# Apache Configuration
 COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
