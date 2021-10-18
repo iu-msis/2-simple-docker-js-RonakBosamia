@@ -6,7 +6,7 @@ require 'class/DbConnection.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM books';
+$sql = 'SELECT * FROM book';
 $vars = [];
 
 //if (isset($_GET['books'])) {
@@ -18,10 +18,10 @@ $vars = [];
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$patients = $stmt->fetchAll();
+$books = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($patients, JSON_PRETTY_PRINT); //patients/ whwat we are printing
+$json = json_encode($books, JSON_PRETTY_PRINT); //patients/ whwat we are printing
 
 // Step 4: Output
 header('Content-Type: application/json');
