@@ -77,166 +77,57 @@
       </tbody>
   </table>
 </div>
-  <!-- <table id="taskTable" class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author(s)</th>
-        <th scope="col">Year Published</th>
-        <th scope="col">Publisher</th>
-        <th scope="col">Page Count</th>
-        <th scope="col">MSRP</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Harry Potter & The Sorcerers Stone</td>
-        <td>J.K. Rowling </td>
-        <td>1997</td>
-        <td>Bloomsburg Publishing</td>
-        <td>223</td>
-        <td>$6.98</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>To Kill A Mockingbird</td>
-        <td>Harper Lee</td>
-        <td>1960</td>
-        <td>J.B. Lippincott & Co.</td>
-        <td>281</td>
-        <td>$14.99</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>The Great Gatsby</td>
-        <td>F. Scott Fitzgerald</td>
-        <td>1925</td>
-        <td>Charles Scribner's Sons</td>
-        <td>240</td>
-        <td>$2.99</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Pride and Prejudice</td>
-        <td>Jane Austin</td>
-        <td>1901</td>
-        <td>Simon & Schuster</td>
-        <td>408</td>
-        <td>$4.99</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>The Lord of the Rings</td>
-        <td>J. R. R. Tolkien</td>
-        <td>1954</td>
-        <td>Allen & Unwin</td>
-        <td>1178</td>
-        <td>$5.99</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td>The Very Hungry Caterpillar</td>
-        <td>Eric Carle</td>
-        <td>1969</td>
-        <td>World Publishing Company</td>
-        <td>22</td>
-        <td>$6.99</td>
-      </tr>
-      <tr>
-        <th scope="row">7</th>
-        <td>Circe</td>
-        <td>Madeline Miller</td>
-        <td>2018</td>
-        <td>Little, Brown and Company</td>
-        <td>393</td>
-        <td>$11.99</td>
-      </tr>
-      <tr>
-        <th scope="row">8</th>
-        <td>The Catcher in the Rye</td>
-        <td>J.D. salinger</td>
-        <td>1951</td>
-        <td>Little, Brown and Company</td>
-        <td>277</td>
-        <td>$9.99</td>
-      </tr>
-    </tbody>
-  </table> -->
-
-
 
 
   <!-- <form action="xyz." method="get"> To link a php page-->
-    <fieldset>
-        <legend>Would you like to add a book to the list?</legend>
+    <h3>Add a Book To the List!</h3>
         <form>
+          <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="number" v-model="booksform.id"
+                class="form-control" id="id">
+           </div>
+          <div class="mb-3">
+              <label for="Title" class="form-label">Book Title</label>
+              <input type="text" v-model="booksform.Title"
+               class="form-control" id="Title">
+          </div>
 
-          <div class="form-row">
-            <div class="col-md-4 mb-3">
-              <label for="validationServer01">Book Title:</label>
-              <input type="text" class="form-control" id="validationServer01" placeholder="Enter A Book Title" required>
-            </div>
-
-            <div class="col-md-4 mb-3">
-              <label for="validationServer02">Author(s):</label>
-              <input type="text" class="form-control" id="validationServer02" placeholder="Enter The Book Author(s)" required>
-              <div class="valid-feedback">
-                Looks good!
-              </div>
-            </div>
-
+          <div class="mb-3">
+            <label for="Author">Author(s)</label>
+            <input type="text" v-model=booksform.Author
+              class="form-control" id="Author">
+          </div>
             
-              <div class="col-md-4 mb-3"> 
-                <label for="validationServer03">Year Published:</label>
-                <input type="text" class="form-control" id="validationServer03" placeholder="2021" required>
-                <div class="invalid-feedback">
-                  Please provide the year published.
-                </div>
-              </div>
+            <div class="mb-3"> 
+                <label for="YrPublished">Year Published</label>
+                <input type="text" v-model=booksform.YrPublished
+                class="form-control" id="YrPublished">
             </div>
+          
             
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationServer04">Publisher:</label>
-                <input type="text" class="form-control" id="validationServer04" placeholder="John Doe" required>
-                <div class="invalid-feedback">
-                  Please provide the publishing company of the book.
-                </div>
-              </div>
+            <div class="mb-3">
+                <label for="Publisher">Publisher</label>
+                <input type="text" v-model="booksform.Publisher"
+                class="form-control" id="Publisher">
+            </div>
 
 
-              <div class="col-md-3 mb-3">
-                <label for="validationServer05">Page Count:</label>
-                <input type="text" class="form-control" id="validationServer05" placeholder="1234" required>
-                <div class="invalid-feedback">
-                  Please provide the page count.
-                </div>
-              </div>
-           
-
-            <div class="col-md-3 mb-3">
-              <label for="validationServerUsername">MSRP</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend3">$</span>
-                </div>
-                <input type="text" class="form-control" id="validationServerUsername" placeholder="15.00" aria-describedby="inputGroupPrepend3" required>
-                <div class="invalid-feedback">
-                  Please input the MSRP.
-                </div>
+            <div class="mb-3">
+              <label for="PageCount">Page Count</label>
+              <input type="number" v-model="booksform.PageCount"
+              class="form-control" id="PageCount">
+            </div>
+          
+            <div class="mb-3">
+              <label for="MSRP">MSRP</label>
+              <input type="number" step="0.01" v-model="booksform.MSRP"
+              class="form-control" id="MSRP">
               </div>
             </div>
           </div>
 
-
-       
-            
-
-          
-          <button class="btn btn-primary" type="submit">Submit form</button>
+          <button class="btn btn-primary" type="submit">Add Book</button>
         </form>
 
         <a href="jpg/reading.jpg">
