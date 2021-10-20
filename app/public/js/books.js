@@ -2,8 +2,8 @@ const book = {
     data() {
         return {
             "books": [],
-            booksform: {}
-
+            booksform: {},
+            selectedBook: null
             }
         },
     computed: {},
@@ -30,9 +30,36 @@ const book = {
     
         },
         postBook(evt){ //look at postOffer if needed to add onto this 
-            console.log("Test");
-            this.postNewBook(evt);
+            console.log("Test",this.selectedBook);
+            if (this .selectedBook){
+                this.postEditBook(evt);
+            }else{
+                this.postNewBook(evt);
+            }
         },
+        postEditBook(evt) {
+            this.booksform.id = this.selectedBook.id;
+            //this.booksform.id = this.selectedStudent.id;        
+            
+            console.log("Editing!", this.booksform);
+    
+            fetch('api/books/update.php', {
+                method:'POST',
+                body: JSON.stringify(this.booksform),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                this.handleResetEdit();
+              });
+          },
         postNewBook(evt){
             console.log("Posting!",this.booksform);
             //alert("posted");
@@ -53,22 +80,49 @@ const book = {
                 
             //reset form
             this.booksform = {};    
-            // this.handleResetEdit();
+            this.handleResetEdit();
              });
             }
         },
-        // handleResetEdit() {
-        //     //this.selectedOffer = null;
-
-            //this.booksform = {};
-        //}
-
-    //},
+        postDeleteBook(b) {  
+            if ( !confirm("Are you sure you want to delete the book?") ) {
+                return;
+            }  
+            
+            console.log("Delete!", b);
+    
+            fetch('api/books/delete.php', {
+                method:'POST',
+                body: JSON.stringify(b),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.books = json;
+                
+                // reset the form
+                this.booksform ={};
+                this.handleResetEdit();
+              });
+          },
+           handleEditBook(book) { 
+             this.selectedBook = book;
+             this.booksform = Object.assign({}, this.selectedBook);
+         },
+    //     handleResetEdit() {
+    //         this.selectedBook = null;
+    //         this.booksform = {};
+    //     }
+    // },
+          
     created() {
          this.fetchBookInfo();
 
 }    //end created
-}    //end randomUser
-        //.then( (data) => console.log(data));
+}    
 
 Vue.createApp(book).mount('#booksApp');

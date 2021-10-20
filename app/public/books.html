@@ -61,6 +61,7 @@
         <th>Publisher</th>
         <th>Page Count</th>
         <th>MSRP</th>
+        <th></th>
       </tr>
     </thead>
       <tbody>
@@ -71,7 +72,13 @@
               <td>{{ book.Publisher }}</td>
               <td>{{ book.PageCount }}</td>
               <td>{{ prettyDollar(book.MSRP) }}</td>
-          </tr>
+              <td>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                  v-on:click="handleEditBook(book)">Edit</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                  v-on:click="postDeleteBook(book)">Delete</button>
+              </td>
+            </tr>
       </tbody>
     </table>
 
@@ -136,7 +143,9 @@
               id="MSRP">
           </div> 
             <button type="submit" value="submit" class="btn btn-primary" >Add Book</button>
-              
+            <button type="button" class="btn btn-outline-secondary" 
+            v-if="selectedOffer"
+            v-on:click="handleResetEdit">Cancel Edit</button>  
           </form>
           
             <!-- <div class="mb-3">
