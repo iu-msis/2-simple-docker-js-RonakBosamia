@@ -3,7 +3,7 @@ USE ronbosdb;
 
 DROP TABLE IF EXISTS book;
 CREATE TABLE book (
-	id INT NOT NULL,
+	id INT PRIMARY KEY AUTO_INCREMENT ,
     Title VARCHAR(300),
     Author VARCHAR(300),
     YrPublished INT,

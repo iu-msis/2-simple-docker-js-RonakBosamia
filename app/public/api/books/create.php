@@ -31,12 +31,14 @@ $db = DbConnection::getConnection(); //makes connection w. database
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare( //statement template for db server - execute sql query -calling prepare function into a pdo statement 
-  'INSERT INTO offer (id, Title, Author, YrPublished, Publisher,PageCount,MSRP) 
-  VALUES (?, ?, ?, ?, ?,?,?)' //placeholder for data - parameterized query // establishes the variabels which input will go into
+ // 'INSERT INTO offer (id, Title, Author, YrPublished, Publisher,PageCount,MSRP) 
+ // VALUES (?, ?, ?, ?, ?,?,?)' //placeholder for data - parameterized query // establishes the variabels which input will go into
+  'INSERT INTO book (Title, Author, YrPublished, Publisher, PageCount, MSRP) 
+  VALUES (?, ?, ?, ?,?,?)' //placeholder for data - parameterized query // establishes the variabels which input will go into
 );
 
 $stmt->execute([ //carries out the input and works to pass to db  - run it 
-  $_POST['id'], //data from "?" above is passed from here
+  //$_POST['id'], //data from "?" above is passed from here
   $_POST['Title'],
   $_POST['Author'],
   $_POST['YrPublished'],
@@ -54,4 +56,4 @@ $stmt->execute([ //carries out the input and works to pass to db  - run it
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other'); //and use a get
-header('Location: ../offer/?student=' . $_POST['id']); //redirect to offer api to get all offers for student
+header('Location: ../books/'); //redirect to offer api to get all offers for student

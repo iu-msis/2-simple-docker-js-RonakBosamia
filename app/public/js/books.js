@@ -1,11 +1,11 @@
-const book={
+const book = {
     data() {
         return {
-            books:[],
-            booksform:{}
+            "books": [],
+            booksform: {}
 
-        }
-    },
+            }
+        },
     computed: {},
     methods: {
         prettyDollar(n){
@@ -14,7 +14,7 @@ const book={
         },
         fetchBookInfo(){
             
-            fetch('/api/student/')
+            fetch('/api/books/')
             .then( response => response.json() )
             .then( (responseJson) => {
                 console.log(responseJson);
@@ -23,34 +23,47 @@ const book={
             })
             .catch( (err) => {
                 console.error(err);
-        })
-        .catch( (error) => {
-            console.error(error);
-        });
- 
+            })
+            .catch( (error) => {
+                console.error(error);
+            });
+    
+        },
+        postBook(evt){ //look at postOffer if needed to add onto this 
+            console.log("Test");
+            this.postNewBook(evt);
         },
         postNewBook(evt){
-            console.log("Creating!", this.booksform);
+            console.log("Posting!",this.booksform);
+            //alert("posted");
 
-            fetch('api/create.php',{
+            fetch('api/books/create.php', {
                 method:'POST',
                 body: JSON.stringify(this.booksform),
-                headers:{
+                headers: {
                     "Content-Type": "application/json; charset=utf-8"
                 }
             })
             .then( response => response.json() )
             .then( json => {
                 console.log("Returned from post:", json);
-                this.books =json;
+                //this.books.push(json);
+                // could remove above and 
+                this.books = json;
+                
+            //reset form
+            this.booksform = {};    
+            // this.handleResetEdit();
+             });
+            }
+        },
+        // handleResetEdit() {
+        //     //this.selectedOffer = null;
 
-                this.handleResetEdit();
-            });
-            
-            
-        }
+            //this.booksform = {};
+        //}
 
-    },
+    //},
     created() {
          this.fetchBookInfo();
 
