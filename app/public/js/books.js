@@ -113,16 +113,16 @@ const book = {
              this.selectedBook = book;
              this.booksform = Object.assign({}, this.selectedBook);
          },
-    //     handleResetEdit() {
-    //         this.selectedBook = null;
-    //         this.booksform = {};
-    //     }
-    // },
+        // handleResetEdit() {
+          //   this.selectedBook = null;
+            // this.booksform = {};
+         //}
+     //},
           
     created() {
          this.fetchBookInfo();
 
-}    //end created
-}    
+    }    //end created
+}      
 
 Vue.createApp(book).mount('#booksApp');
