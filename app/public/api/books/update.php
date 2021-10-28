@@ -31,13 +31,13 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE offer SET
+  'UPDATE book SET
     Title = ?,
     Author = ?,
     YrPublished = ?,
-    Publisher =?,
-    PageCount =?,
-    MSRP =?
+    Publisher = ?,
+    PageCount = ?,
+    MSRP = ?
   WHERE id = ?'
 );
 
@@ -47,7 +47,8 @@ $stmt->execute([
   $_POST['YrPublished'],
   $_POST['Publisher'],
   $_POST['PageCount'],
-  $_POST['MSRP']
+  $_POST['MSRP'],
+  $_POST['id']
 ]);
 
 // Get auto-generated PK from DB

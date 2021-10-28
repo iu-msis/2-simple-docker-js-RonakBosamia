@@ -72,6 +72,7 @@
               <td>{{ book.Publisher }}</td>
               <td>{{ book.PageCount }}</td>
               <td>{{ prettyDollar(book.MSRP) }}</td>
+              <td></td>
               <td>
                 <button type="button" class="btn btn-outline-secondary btn-sm"
                   v-on:click="handleEditBook(book)">Edit</button>
@@ -86,7 +87,7 @@
 
   <!-- <form action="xyz." method="get"> To link a php page-->
     <h3>Add a Book To the List!</h3>
-        <form v-on:submit.prevent="postNewBook"> <!--fetchBookInfo-->
+        <form v-on:submit.prevent="postBook"> <!--fetchBookData-->
           <div class="mb-3">
               <label for="Title" 
               class="form-label">Book Title</label>
@@ -142,24 +143,15 @@
               class="form-control" 
               id="MSRP">
           </div> 
-            <button type="submit" value="submit" class="btn btn-primary" >Add Book</button>
+            <button type="submit" class="btn btn-primary" >{{ selectedBook === null ? "Add " : "Edit "}} Book</button>
             <button type="button" class="btn btn-outline-secondary" 
-            v-if="selectedOffer"
-            v-on:click="handleResetEdit">Cancel Edit</button>  
+              v-if="selectedBook"
+              v-on:click="handleResetEdit">Cancel Edit</button>  
           </form>
           
-            <!-- <div class="mb-3">
-              <label for="MSRP">MSRP</label>
-              <input type="text" step="0.01" v-model="booksform.MSRP"
-              class="form-control" id="MSRP">
-              </div> -->
-              
 </div>
   
-          <!-- <button type="submit" class="btn btn-primary" >Add Book</button>
-        </form> -->
-
-
+         
         <a href="jpg/reading.jpg">
           <figure><img src="jpg/reading.jpg" height="300" class="center"><figcaption class="centerText"><a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.lifehack.org%2Farticles%2Fproductivity%2F10-ways-increase-your-reading-speed.html&psig=AOvVaw32IrAvdqGVHyPCuNtj-qxZ&ust=1630694246798000&source=images&cd=vfe&ved=0CAwQjhxqFwoTCIDksdH34PICFQAAAAAdAAAAABAD">  
             <i>From Lifehack</i></a></figcaption></figure> 
